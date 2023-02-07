@@ -53,7 +53,7 @@ namespace AdminApp.Controllers
 
             _productRepo.Create(model);
 
-            return CreatedAtRoute("createproduct", new { id = model.Id }, productDto);
+            return CreatedAtRoute("createproduct", productDto);
         }
 
         [HttpDelete("products/deleteproduct/{id:int}")]

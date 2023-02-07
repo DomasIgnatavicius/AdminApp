@@ -15,6 +15,7 @@ builder.Services.AddDbContext<ShopContext>(option =>
 });
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();

@@ -8,15 +8,20 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import globalReducer from './state';
 import { Provider } from 'react-redux';
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { api } from "./state/api"
 
-const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
+//const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 const store = configureStore({
     reducer: {
         global: globalReducer,
+        [api.reducerPath]: api.reducer,
     },
+    middleware: (getDefault) => getDefault().concat(api.middleware)
 });
+setupListeners(store.dispatch);
 
 root.render(
     <React.StrictMode>

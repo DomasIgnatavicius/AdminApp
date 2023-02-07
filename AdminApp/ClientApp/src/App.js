@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { themeSettings } from "./theme.js";
 import Dashboard from "./scenes/dashboard";
 import { BrowserRouter as Router } from 'react-router-dom';
+import Products from "./scenes/products"
 
 /*export default class App extends Component {
     static displayName = App.name;
@@ -39,6 +40,7 @@ function App() {
                         <Route element={<Layout />}>
                             <Route index path="/" element={<Navigate to="/dashboard" replace />} />
                             <Route path="/dashboard" element={<Dashboard />} />
+                            <Route path="/products" element={<Products />}/>
                         </Route>
                     </Routes>
                 </Router>
